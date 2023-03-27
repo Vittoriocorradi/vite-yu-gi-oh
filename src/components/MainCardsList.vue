@@ -1,10 +1,17 @@
 <script>
     import Card from './Card.vue';
+    import { store } from '../store.js';
+
 
     export default {
         name: 'Main Cards List',
-        component: {
+        components: {
             Card
+        },
+        data() {
+            return {
+                store
+            }
         }
     }
 </script>
@@ -15,41 +22,8 @@
             Found 39 cards
         </h3>
         <div class="cards-list">
-            <div class="card">
-                <div>img</div>
-                <h4>card name</h4>
-                <div>type</div>
-            </div>
-            <div class="card">
-                <div>img</div>
-                <h4>card name</h4>
-                <div>type</div>
-            </div>
-            <div class="card">
-                <div>img</div>
-                <h4>card name</h4>
-                <div>type</div>
-            </div>
-            <div class="card">
-                <div>img</div>
-                <h4>card name</h4>
-                <div>type</div>
-            </div>
-            <div class="card">
-                <div>img</div>
-                <h4>card name</h4>
-                <div>type</div>
-            </div>
-            <div class="card">
-                <div>img</div>
-                <h4>card name</h4>
-                <div>type</div>
-            </div>
-            <div class="card">
-                <div>img</div>
-                <h4>card name</h4>
-                <div>type</div>
-            </div>
+            <Card
+            />
         </div>
     </div>
 </template>
@@ -71,10 +45,15 @@
             display: flex;
             flex-wrap: wrap;
             margin: 0 -1.0938rem;
-            .card {
+            :deep(.card) {
                 background-color: var(--primary-color);
                 width: calc(100% / 5 - 35px);
                 margin: 0 1.0938rem 1.5625rem;
+                text-align: center;
+
+                h4 {
+                    color: #fff;
+                }
             }
         }
     }
