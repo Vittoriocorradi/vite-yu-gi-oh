@@ -28,7 +28,6 @@
     main {
         background-color: var(--primary-color);
         padding: 2.1875rem 10rem 0;
-        height: 100%;
 
         .container {
         @include my-container(105rem);

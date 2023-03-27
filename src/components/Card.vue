@@ -7,14 +7,23 @@ export default {
         return {
             store
         }
+    },
+    props: {
+        img: String,
+        name: String,
+        archetype: String
     }
 }
 </script>
 
 <template>
     <div class="card">
-        <div>img</div>
-        <h4>card name</h4>
-        <!-- <div> {{ store.archetype }} </div> -->
+        <div class="img">
+            <img :src="img" alt="">
+        </div>
+        <div class="text">
+            <h4> {{ name }} </h4>
+            <div> {{ archetype }} </div>
+        </div>
     </div>
 </template>

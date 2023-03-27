@@ -23,6 +23,10 @@
         </h3>
         <div class="cards-list">
             <Card
+            v-for="card in store.cardsCut"
+            :img="card.card_images[0].image_url"
+            :name="card.name"
+            :archetype="card.race"
             />
         </div>
     </div>
@@ -51,8 +55,20 @@
                 margin: 0 1.0938rem 1.5625rem;
                 text-align: center;
 
-                h4 {
-                    color: #fff;
+                .img {
+                    
+                    img {
+                        max-width: 100%;
+                    }
+                }
+
+                .text {
+                    padding: 1.875rem 1.875rem 2.8125rem;
+
+                    h4 {
+                        color: #fff;
+                        margin-bottom: 2.1875rem;
+                    }
                 }
             }
         }
