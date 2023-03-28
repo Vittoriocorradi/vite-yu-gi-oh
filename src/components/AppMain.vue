@@ -20,7 +20,7 @@ export default {
 <template>
     <main>
         <div class="container">
-            <MainSelect @search="$emit('searchNextLevel')"/>
+            <MainSelect @search="$emit('search')"/>
             <MainCardsList />
         </div>
     </main>

@@ -15,8 +15,7 @@
     <div>
         <label for="select"></label>
         <select id="select" @change="$emit('search')" v-model="store.searchStatus">
-            <option disabled selected value="">Archetype</option>
-            <option value="">No Archetype</option>
+            <option selected value="">All Cards</option>
             <option value="Alien">Alien</option>
             <option value="Noble Knight">Noble Knight</option>
             <option value="Melodious">Melodious</option>

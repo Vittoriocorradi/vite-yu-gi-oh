@@ -17,15 +17,27 @@ export default {
   },
   methods: {
     callApi() {
-      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
-        .then((response) => {
-          this.store.cards = response.data.data;
-          this.store.cardsCut = this.store.cards.slice(0, 40);
+      if (this.store.searchStatus !== '') {
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php', {
+          params: {
+            archetype: this.store.searchStatus
+          }
         })
-        .catch((error) => {
-          console.log(error);
-          this.store.cardsCut = [];
-        })
+          .then((response) => {
+            this.store.cards = response.data.data;
+            this.store.cardsCut = this.store.cards.slice(0, 40);
+          })
+          // .catch((error) => {
+          //   console.log(error);
+          //   this.store.cardsCut = [];
+          // })
+      } else {
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+          .then((response) => {
+            this.store.cards = response.data.data;
+            this.store.cardsCut = this.store.cards.slice(0, 40);
+          })
+      }
     }
   },
   created() {
@@ -36,7 +48,7 @@ export default {
 
 <template>
   <AppHeader></AppHeader>
-  <AppMain @searchNextLevel="callApi"></AppMain>
+  <AppMain @search="callApi"></AppMain>
 </template>
 
 <style>

@@ -21,10 +21,10 @@ export default {
         <h3 class="cards-found">
             Found {{ store.cardsCut.length }} cards
         </h3>
-        <div class="well" v-if="store.cardsCut.length !== 40">
+        <!-- <div class="well" v-if="store.cardsCut.length !== 40">
                     <i class="ex-10-icon fas fa-circle-notch"></i>
-        </div>
-        <div class="cards-list" v-else>
+        </div> -->
+        <div class="cards-list">
             <Card v-for="card in store.cardsCut" :img="card.card_images[0].image_url" :name="card.name"
                 :archetype="card.archetype" />
         </div>
