@@ -7,14 +7,20 @@ export default {
     components: {
         MainSelect,
         MainCardsList
-    }
+    },
+    // methods: {
+    //     tada() {
+    //         console.log('yadayada');
+    //         this.$emit('search');
+    //     }
+    // }
 }
 </script>
 
 <template>
     <main>
         <div class="container">
-            <MainSelect />
+            <MainSelect @search="$emit('searchNextLevel')"/>
             <MainCardsList />
         </div>
     </main>

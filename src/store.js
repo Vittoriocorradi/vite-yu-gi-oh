@@ -3,5 +3,5 @@ import { reactive } from "vue";
 export const store = reactive({
     cards: [],
     cardsCut: [],
-    cardNumber: ''
+    searchStatus: ''
 })

@@ -15,19 +15,28 @@ export default {
       store
     }
   },
+  methods: {
+    callApi() {
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
+        .then((response) => {
+          this.store.cards = response.data.data;
+          this.store.cardsCut = this.store.cards.slice(0, 40);
+        })
+        .catch((error) => {
+          console.log(error);
+          this.store.cardsCut = [];
+        })
+    }
+  },
   created() {
-    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
-      .then((response) => {
-        this.store.cards = response.data.data;
-        this.store.cardsCut = this.store.cards.slice(0, 40);
-      })
+    this.callApi();
   }
 }
 </script>
 
 <template>
   <AppHeader></AppHeader>
-  <AppMain></AppMain>
+  <AppMain @searchNextLevel="callApi"></AppMain>
 </template>
 
 <style>

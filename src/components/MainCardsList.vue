@@ -26,7 +26,7 @@ export default {
         </div>
         <div class="cards-list" v-else>
             <Card v-for="card in store.cardsCut" :img="card.card_images[0].image_url" :name="card.name"
-                :archetype="card.race" />
+                :archetype="card.archetype" />
         </div>
     </div>
 </template>
@@ -69,6 +69,7 @@ export default {
                 h4 {
                     color: #fff;
                     margin-bottom: 2.1875rem;
+                    text-transform: uppercase;
                 }
             }
         }
